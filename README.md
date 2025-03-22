@@ -18,7 +18,6 @@ git clone https://github.com/Zhefan-Xu/Intent-MPC.git
 cd ~/catkin_ws
 catkin_make
 ```
-```
 
 
 ## Run Demo

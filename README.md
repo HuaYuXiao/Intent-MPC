@@ -23,10 +23,10 @@ catkin_make
 ## Run Demo
 ```
 # change reference trajectory directory in: Intent-MPC/autnomous_flight/cfg/mpc_navigation/flight_base.yaml
-predefined_goal_directory: "/home/{user}/catkin_ws/src/Intent-MPC/autonomous_flight/cfg/mpc_navigation/ref_trajectory.txt"
+predefined_goal_directory: "{PATH_TO}/Intent-MPC/autonomous_flight/cfg/mpc_navigation/ref_trajectory.txt"
 
 # change prebuilt map directory in: Intent-MPC/autnomous_flight/cfg/mpc_navigation/mapping_param.yaml
-prebuilt_map_directory: "/home/{user}/catkin_ws/src/Intent-MPC/autonomous_flight/cfg/saved_map/test.pcd"
+prebuilt_map_directory: "{PATH_TO}/Intent-MPC/autonomous_flight/cfg/saved_map/test.pcd"
 
 # start simulator
 roslaunch uav_simulator start.launch # recommand to use the generated env for your first trial

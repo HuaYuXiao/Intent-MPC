@@ -1,4 +1,4 @@
-# Intent-Prediction Driven Model Predictive Control for UAV Planning and Navigation in Dynamic Environment
+# Intent Prediction-Driven Model Predictive Control for UAV Planning and Navigation in Dynamic Environment
 
 ## Installation Guide
 The system requirements for this repository are as follows. Please ensure your system meets these requirements:

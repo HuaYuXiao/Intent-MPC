@@ -48,4 +48,4 @@ visualize_global_map: true
 verbose: false
 
 # prebuilt_map_directory: "No"
-prebuilt_map_directory: "/home/jhy/catkin_ws/src/CERLAB-UAV-Autonomy-v2/autonomous_flight/cfg/saved_map/test.pcd"
+prebuilt_map_directory: "/home/jhy/catkin_ws/src/Intent-MPC/autonomous_flight/cfg/saved_map/test.pcd"

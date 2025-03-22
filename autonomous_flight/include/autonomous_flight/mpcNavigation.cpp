@@ -3,7 +3,7 @@
 	------------------------
 	dynamic navigation implementation file
 */
-#include <autonomous_flight/px4/mpcNavigation.h>
+#include <autonomous_flight/mpcNavigation.h>
 
 namespace AutoFlight{
 	mpcNavigation::mpcNavigation(const ros::NodeHandle& nh) : flightBase(nh){

@@ -3,7 +3,7 @@
 	-------------------------
 	implementation of flight base
 */
-#include <autonomous_flight/px4/flightBase.h>
+#include <autonomous_flight/flightBase.h>
 
 namespace AutoFlight{
 	flightBase::flightBase(const ros::NodeHandle& nh) : nh_(nh){   

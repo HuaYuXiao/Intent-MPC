@@ -13,7 +13,7 @@
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/TwistStamped.h>
 #include <gazebo_msgs/SetModelState.h>
-#include <autonomous_flight/px4/utils.h>
+#include <autonomous_flight/utils.h>
 #include <tracking_controller/Target.h>
 #include <mavros_msgs/CommandBool.h>
 #include <mavros_msgs/SetMode.h>

@@ -1,4 +1,4 @@
-# Intent Prediction-Driven Model Predictive Control for UAV Planning and Navigation in Dynamic Environment
+# Intent Prediction-Driven Model Predictive Control for UAV Planning and Navigation in Dynamic Environments
 This repository implements the Intent Prediction-Driven Model Predictive Control (Intent-MPC) framework, enabling the robot to navigate safely in dynamic environments.
 
 

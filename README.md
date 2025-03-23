@@ -56,7 +56,7 @@ Once the package is properly installed, you can run the following command to lau
 roslaunch uav_simulator start.launch
 
 # launch the intent MPC navigation 
-roslaunch remote_control intent_mpc_demo.launch
+roslaunch autonomous_flight intent_mpc_demo.launch
 ```
 The simulation environment will load in a Gazebo window, while an RViz window visualizes the robot’s sensor data and planned trajectories. The robot will follow a circular path while avoiding both static and dynamic obstacles.
 

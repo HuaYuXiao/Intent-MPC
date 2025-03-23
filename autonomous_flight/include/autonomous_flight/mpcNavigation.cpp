@@ -427,7 +427,7 @@ namespace AutoFlight{
 					}
 					else{
 						double dt = 0.1;
-						nav_msgs::Path mpcInputTraj = this->polyTraj_->getTrajectory(dt);
+						nav_msgs::Path mpcInputTraj = this->predefinedGoal_;
 						this->mpc_->updatePath(mpcInputTraj, dt);
 						this->inputTrajMsg_ = mpcInputTraj;
 						this->mpcFirstTime_ = true;

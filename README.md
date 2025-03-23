@@ -12,7 +12,7 @@ This repository implements the Intent Prediction-Driven Model Predictive Control
 
 For additional details, please refer to the related paper available here:
 
-Zhefan Xu*, Hanyu Jin*, Xinming Han, Haoyu Shen, and Kenji Shimada, "Intent Prediction-Driven Model Predictive Control for UAV Planning and Navigation in Dynamic Environments”, *IEEE Robotics and Automation Letters (RA-L)*, 2025. [IEEE Xplore] [\[preprint\]](https://arxiv.org/pdf/2409.15633) [\[YouTube\]](https://youtu.be/4xsEeMB9WPY)[BiliBili]
+Zhefan Xu*, Hanyu Jin*, Xinming Han, Haoyu Shen, and Kenji Shimada, "Intent Prediction-Driven Model Predictive Control for UAV Planning and Navigation in Dynamic Environments”, *IEEE Robotics and Automation Letters (RA-L)*, 2025. [IEEE Xplore] [\[preprint\]](https://arxiv.org/pdf/2409.15633) [\[YouTube\]](https://youtu.be/4xsEeMB9WPY) [BiliBili]
 
 *The authors contributed equally.
 

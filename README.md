@@ -1,6 +1,23 @@
 # Intent Prediction-Driven Model Predictive Control for UAV Planning and Navigation in Dynamic Environment
+This repository implements the Intent Prediction-Driven Model Predictive Control (Intent-MPC) framework, enabling the robot to navigate safely in dynamic environments.
 
-## Installation Guide
+For additional details, please refer to the related paper available here:
+
+Zhefan Xu*, Hanyu Jin*, Xinming Han, Haoyu Shen, and Kenji Shimada, "Intent Prediction-Driven Model Predictive Control for UAV Planning and Navigation in Dynamic Environments”, *IEEE Robotics and Automation Letters (RA-L)*, 2025. [IEEE Xplore] [\[preprint\]](https://arxiv.org/pdf/2409.15633) [\[YouTube\]](https://youtu.be/4xsEeMB9WPY)[BiliBili]
+
+*The authors contributed equally.
+
+## News
+- **2025-03-22:** The GitHub code, video demos, and relavant papers for our Intent-MPC Navigation framework are released. The authors will actively maintain and update this repo!
+
+
+## Table of Contents
+- [Installation Guide](#I-Installation-Guide)
+- [Run a Quick Demo](#II-Run-a-Quick-Demo)
+- [Citation and Reference](#III-Citation-and-Reference)
+- [Acknowledgement](#IV-Acknowledgement)
+
+## I. Installation Guide
 The system requirements for this repository are as follows. Please ensure your system meets these requirements:
 - Ubuntu 18.04/20.04 LTS
 - ROS Melodic/Noetic
@@ -23,16 +40,8 @@ echo 'source path/to/uav_simulator/gazeboSetup.bash' >> ~/.bashrc
 ```
 
 
-## Run a Quick Demo
-```
-# change reference trajectory directory in: Intent-MPC/autnomous_flight/cfg/mpc_navigation/flight_base.yaml
-predefined_goal_directory: "{PATH_TO}/Intent-MPC/autonomous_flight/cfg/mpc_navigation/ref_trajectory.txt"
-
-# change prebuilt map directory in: Intent-MPC/autnomous_flight/cfg/mpc_navigation/mapping_param.yaml
-prebuilt_map_directory: "{PATH_TO}/Intent-MPC/autonomous_flight/cfg/saved_map/test.pcd"
-```
-
-
+## II. Run a Quick Demo
+Once the package is properly installed, you can run the following command to launch a quick demo of UAV navigation in a dynamic environment.
 ```
 # start the uav simulator
 roslaunch uav_simulator start.launch
@@ -42,7 +51,18 @@ roslaunch remote_control intent_mpc_demo.launch
 ```
 
 
-## Citation and Reference
+## III. Citation and Reference
+If our work is useful to your research, please consider citing our paper.
+```
+@article{Intent-MPC,
+  title={Intent Prediction-Driven Model Predictive Control for UAV Planning and Navigation in Dynamic Environments},
+  author={Xu, Zhefan and Jin, Hanyu and Han, Xinming and Shen, Haoyu and Shimada, Kenji},
+  journal={arXiv preprint arXiv:2409.15633},
+  year={2024}
+}
 ```
 
-```
+## IV. Acknowledgement
+This paper is based on results obtained from a project of Programs for Bridging the gap between R\&D and the IDeal society (society 5.0) and Generating Economic and social value (BRIDGE)/Practical Global Research in the AI×Robotics Services, implemented by the Cabinet Office, Government of Japan.
+
+The author would like to express his sincere gratitude to Professor Kenji Shimada for his great support and all CERLAB UAV team members who contribute to the development of this research.

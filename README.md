@@ -61,6 +61,10 @@ roslaunch remote_control intent_mpc_demo.launch
 The simulation environment will load in a Gazebo window, while an RViz window visualizes the robot’s sensor data and planned trajectories. The robot will follow a circular path while avoiding both static and dynamic obstacles.
 
 
+https://github.com/user-attachments/assets/2ed3163f-c4e3-43d3-9ac5-11ac57a344d3
+
+
+
 ## III. Citation and Reference
 If our work is useful to your research, please consider citing our paper.
 ```

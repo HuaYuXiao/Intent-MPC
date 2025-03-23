@@ -11,6 +11,6 @@ desired_angular_velocity: 0.5 # rad/s
 
 # MPC target parameters
 use_predefined_goal: true
-predefined_goal_directory: "/home/zhefan/catkin_ws/src/Intent-MPC/autonomous_flight/cfg/mpc_navigation/ref_trajectory.txt"
+predefined_goal_directory: "/cfg/mpc_navigation/ref_trajectory.txt"
 execute_path_times: 10 # how many times to repeat the trajectory 
 

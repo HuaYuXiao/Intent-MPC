@@ -9,12 +9,7 @@ namespace AutoFlight{
 	mpcNavigation::mpcNavigation(const ros::NodeHandle& nh) : flightBase(nh){
 		this->initParam();
 		this->initModules();
-		this->registerPub();
-		// if (this->useFakeDetector_){
-			// free map callback
-			// this->freeMapTimer_ = this->nh_.createTimer(ros::Duration(0.01), &mpcNavigation::freeMapCB, this);
-		// }
-		
+		this->registerPub();		
 	}
 
 	void mpcNavigation::initParam(){
@@ -106,6 +101,8 @@ namespace AutoFlight{
 			cout << "[AutoFlight]: No predefined goal directory directory." << endl;
 		} 
 		else{
+			std::string autoFlightPkgPath = ros::package::getPath("autonomous_flight");
+			this->refTrajPath_ = autoFlightPkgPath + this->refTrajPath_;
 			cout << "[AutoFlight]: Predefined goal directory is set to: " << this->refTrajPath_ << "." << endl;
 		}	
 

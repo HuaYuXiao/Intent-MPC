@@ -404,16 +404,16 @@ namespace dynamicPredictor{
     void predictor::modelTurning(const int & intentType, const Eigen::Vector3d &currPos, const Eigen::Vector3d &currVel, const Eigen::Vector3d &currAcc, const Eigen::Vector3d &currSize, std::vector<std::vector<Eigen::Vector3d>> &predPoints, std::vector<Eigen::Vector3d> &predSize){
         predPoints.clear();
         predSize.clear();
-        double acc = sqrt(pow(currAcc(0),2)+pow(currAcc(1),2));
+        // double acc = sqrt(pow(currAcc(0),2)+pow(currAcc(1),2));
         double vel = sqrt(pow(currVel(0),2)+pow(currVel(1),2));
         double angleInit = atan2(currVel(1), currVel(0));
         double minVel, maxVel;
         double angle;
         minVel = vel-vel;
         maxVel = vel+vel;
-        double minAcc, maxAcc;
-        minAcc = acc-acc;
-        maxAcc = acc+acc;
+        // double minAcc, maxAcc;
+        // minAcc = acc-acc;
+        // maxAcc = acc+acc;
         double endMin, endMax;
 
         if (intentType != LEFT and intentType != RIGHT){

@@ -1,3 +1,0 @@
-<launch>
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find remote_control)/rviz/track_circle.rviz" required="true"/>
-</launch>

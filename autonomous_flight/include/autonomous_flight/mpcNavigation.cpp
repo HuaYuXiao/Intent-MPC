@@ -216,7 +216,6 @@ namespace AutoFlight{
 	
 			path_msg.poses.push_back(pose);
 		}
-		cout<<"ref traj size: "<<path_msg.poses.size()<<endl;
 	
 		file.close();
 		return path_msg;

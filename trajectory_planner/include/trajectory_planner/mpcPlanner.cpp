@@ -266,44 +266,54 @@ namespace trajPlanner{
 	}
 
 	void mpcPlanner::updateDynamicObstacles(const std::vector<Eigen::Vector3d>& obstaclesPos, const std::vector<Eigen::Vector3d>& obstaclesVel, const std::vector<Eigen::Vector3d>& obstaclesSize){
-		this->dynamicObstaclesPos_.clear();
-		this->dynamicObstaclesSize_.clear();
-		this->dynamicObstaclesVel_.clear();
+		std::vector<std::vector<Eigen::Vector3d>> dynamicObstaclesPosTemp;
+		std::vector<std::vector<Eigen::Vector3d>> dynamicObstaclesSizeTemp;
+		std::vector<std::vector<Eigen::Vector3d>> dynamicObstaclesVelTemp;
+		dynamicObstaclesPosTemp.clear();
+		dynamicObstaclesSizeTemp.clear();
+		dynamicObstaclesVelTemp.clear();
 
-		this->dynamicObstaclesPos_.resize(obstaclesPos.size());
-		this->dynamicObstaclesSize_.resize(obstaclesPos.size());
-		this->dynamicObstaclesVel_.resize(obstaclesPos.size());
+		dynamicObstaclesPosTemp.resize(obstaclesPos.size());
+		dynamicObstaclesSizeTemp.resize(obstaclesPos.size());
+		dynamicObstaclesVelTemp.resize(obstaclesPos.size());
 		for (int i=0; i<int(obstaclesPos.size()); ++i){
 			Eigen::Vector3d pos = obstaclesPos[i];
             Eigen::Vector3d size = obstaclesSize[i];
 			Eigen::Vector3d vel = obstaclesVel[i];
 			for (int j=0; j<this->horizon_; j++){
-				this->dynamicObstaclesPos_[i].push_back(pos);
-				this->dynamicObstaclesSize_[i].push_back(size);
-				this->dynamicObstaclesVel_[i].push_back(vel);
+				dynamicObstaclesPosTemp[i].push_back(pos);
+				dynamicObstaclesSizeTemp[i].push_back(size);
+				dynamicObstaclesVelTemp[i].push_back(vel);
 			}
         }
+
+		this->dynamicObstaclesPos_ = dynamicObstaclesPosTemp;
+		this->dynamicObstaclesSize_ = dynamicObstaclesSizeTemp;
+		this->dynamicObstaclesVel_ = dynamicObstaclesVelTemp;
 	}
 
 	void mpcPlanner::updatePredObstacles(const std::vector<std::vector<std::vector<Eigen::Vector3d>>> &predPos, const std::vector<std::vector<std::vector<Eigen::Vector3d>>> &predSize, const std::vector<Eigen::VectorXd> &intentProb){
 		if (predPos.size()){
+			std::vector<std::vector<Eigen::Vector3d>> dynamicObstaclesPosTemp;
+			std::vector<std::vector<Eigen::Vector3d>> dynamicObstaclesSizeTemp;
+			dynamicObstaclesPosTemp.clear();
+			dynamicObstaclesSizeTemp.clear();
+			dynamicObstaclesPosTemp.resize(predPos.size());
+			dynamicObstaclesSizeTemp.resize(predPos.size());
+			for (int i=0;i<int(predPos.size());i++){
+				Eigen::Vector3d pos, size;
+				pos = predPos[i][0][0];
+				size = predSize[i][0][0];
+				for (int j=0; j<this->horizon_; j++){
+					dynamicObstaclesPosTemp[i].push_back(pos);
+					dynamicObstaclesSizeTemp[i].push_back(size);
+				}
+			}
+			this->dynamicObstaclesPos_ = dynamicObstaclesPosTemp;
+			this->dynamicObstaclesSize_ = dynamicObstaclesSizeTemp;
 			this->obPredPos_ = predPos;
 			this->obPredSize_ = predSize;
 			this->obIntentProb_ = intentProb;
-
-			this->dynamicObstaclesPos_.clear();
-			this->dynamicObstaclesSize_.clear();
-			this->dynamicObstaclesPos_.resize(this->obPredPos_.size());
-			this->dynamicObstaclesSize_.resize(this->obPredPos_.size());
-			for (int i=0;i<int(this->obPredPos_.size());i++){
-				Eigen::Vector3d pos, size;
-				pos = this->obPredPos_[i][0][0];
-				size = this->obPredSize_[i][0][0];
-				for (int j=0; j<this->horizon_; j++){
-					this->dynamicObstaclesPos_[i].push_back(pos);
-					this->dynamicObstaclesSize_[i].push_back(size);
-				}
-			}
 		}
 		else{
 			this->dynamicObstaclesPos_.clear();
@@ -670,7 +680,7 @@ bool mpcPlanner::solveTraj(const std::vector<staticObstacle> &staticObstacles, c
 		// for rest of obstacles, use maximum intent
 		for (int i=0;i<int(intentCombPos.size());i++){
 			for (int j=0;j<int(this->obPredPos_.size());j++){
-				if (j != obIdx){
+				if (j != this->obIdx_){
 					int maxIntent;
 					double maxProb = this->obIntentProb_[j].maxCoeff(&maxIntent);
 					intentCombPos[i].push_back(this->obPredPos_[j][maxIntent]);
@@ -872,7 +882,7 @@ bool mpcPlanner::solveTraj(const std::vector<staticObstacle> &staticObstacles, c
 		std::vector<Eigen::Matrix<double, numStates, 1>> xRefTemp;
 		Eigen::Matrix<double, numStates, 1> ref;
 		ref.setZero();
-		for (int i = 0; i<referenceTraj.size(); ++i){
+		for (int i = 0; i<int(referenceTraj.size()); ++i){
 			ref(0,0) = referenceTraj[i](0);
 			ref(1,0) = referenceTraj[i](1);
 			ref(2,0) = referenceTraj[i](2);

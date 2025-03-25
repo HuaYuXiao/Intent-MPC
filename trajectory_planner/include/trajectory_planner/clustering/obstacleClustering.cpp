@@ -12,70 +12,72 @@ obstacleClustering::obstacleClustering(double res){
 
 
 void obstacleClustering::run(const std::vector<Eigen::Vector3d>& localCloud){
-	// run DBSCAN clustering
-	this->runDBSCAN(localCloud, this->initialClusters_);
+	if (localCloud.size() != 0){
+		// run DBSCAN clustering
+		this->runDBSCAN(localCloud, this->initialClusters_);
 
-	// run KMeans clustering for each DBSCAN cluster
-	std::vector<pointCluster> refinedCluster = this->initialClusters_;
-	std::vector<bool> refineComplete (int(refinedCluster.size()), false);
-	std::vector<bboxVertex> rotatedInitialBBoxes;
-	for (int level=0; level<this->treeLevel_; ++level){
-		std::vector<pointCluster> newRefinedCluster;
-		std::vector<bool> newRefinedComplete;
-		for (int n=0; n<int(refinedCluster.size()); ++n){
-			if (not refineComplete[n]){
-				// if the refinement is not completed, find the bbox orientation and density
-				bboxVertex vertex;
-				double density = this->getOrientation(refinedCluster[n], vertex);
-				rotatedInitialBBoxes.push_back(vertex);
-				// if the density is greater than threshold, mark it as complete
-				if (density >= this->densityThresh_){
+		// run KMeans clustering for each DBSCAN cluster
+		std::vector<pointCluster> refinedCluster = this->initialClusters_;
+		std::vector<bool> refineComplete (int(refinedCluster.size()), false);
+		std::vector<bboxVertex> rotatedInitialBBoxes;
+		for (int level=0; level<this->treeLevel_; ++level){
+			std::vector<pointCluster> newRefinedCluster;
+			std::vector<bool> newRefinedComplete;
+			for (int n=0; n<int(refinedCluster.size()); ++n){
+				if (not refineComplete[n]){
+					// if the refinement is not completed, find the bbox orientation and density
+					bboxVertex vertex;
+					double density = this->getOrientation(refinedCluster[n], vertex);
+					rotatedInitialBBoxes.push_back(vertex);
+					// if the density is greater than threshold, mark it as complete
+					if (density >= this->densityThresh_){
+						newRefinedCluster.push_back(refinedCluster[n]);
+						newRefinedComplete.push_back(true);
+					}
+					else{ // else split it into two
+						std::vector<pointCluster> subCloudClusters;
+						this->runKmeans(refinedCluster[n], subCloudClusters);
+						// evaluate new clusters
+						// if got improvement, add new clusters into the refined bbox array
+						std::vector<bboxVertex> subVertices;
+						double avgDensity = 0.0;
+						for (int i=0; i<int(subCloudClusters.size()); ++i){
+							bboxVertex subVertex;
+							double subDensity = this->getOrientation(subCloudClusters[i], subVertex);
+							avgDensity += subDensity/int(subCloudClusters.size());
+							subVertices.push_back(subVertex);
+						}
+						// if (avgDensity/density > this->improveThresh_){
+						for (int i=0; i<int(subCloudClusters.size()); ++i){
+							newRefinedCluster.push_back(subCloudClusters[i]);
+							newRefinedComplete.push_back(false);
+						}
+						// }
+						// else{
+						// 	newRefinedCluster.push_back(refinedCluster[n]);
+						// 	newRefinedComplete.push_back(true);
+						// }
+					}
+				}
+				else{
 					newRefinedCluster.push_back(refinedCluster[n]);
 					newRefinedComplete.push_back(true);
 				}
-				else{ // else split it into two
-					std::vector<pointCluster> subCloudClusters;
-					this->runKmeans(refinedCluster[n], subCloudClusters);
-					// evaluate new clusters
-					// if got improvement, add new clusters into the refined bbox array
-					std::vector<bboxVertex> subVertices;
-					double avgDensity = 0.0;
-					for (int i=0; i<int(subCloudClusters.size()); ++i){
-						bboxVertex subVertex;
-						double subDensity = this->getOrientation(subCloudClusters[i], subVertex);
-						avgDensity += subDensity/int(subCloudClusters.size());
-						subVertices.push_back(subVertex);
-					}
-					// if (avgDensity/density > this->improveThresh_){
-					for (int i=0; i<int(subCloudClusters.size()); ++i){
-						newRefinedCluster.push_back(subCloudClusters[i]);
-						newRefinedComplete.push_back(false);
-					}
-					// }
-					// else{
-					// 	newRefinedCluster.push_back(refinedCluster[n]);
-					// 	newRefinedComplete.push_back(true);
-					// }
-				}
 			}
-			else{
-				newRefinedCluster.push_back(refinedCluster[n]);
-				newRefinedComplete.push_back(true);
-			}
+			refinedCluster = newRefinedCluster;
+			refineComplete = newRefinedComplete;
 		}
-		refinedCluster = newRefinedCluster;
-		refineComplete = newRefinedComplete;
-	}
 
-	std::vector<bboxVertex> refinedRotatedBBoxes;
-	for (int i=0; i<int(refinedCluster.size()); ++i){
-		bboxVertex vertex;
-		this->getOrientation(refinedCluster[i], vertex);
-		refinedRotatedBBoxes.push_back(vertex);
-	}
+		std::vector<bboxVertex> refinedRotatedBBoxes;
+		for (int i=0; i<int(refinedCluster.size()); ++i){
+			bboxVertex vertex;
+			this->getOrientation(refinedCluster[i], vertex);
+			refinedRotatedBBoxes.push_back(vertex);
+		}
 
-	this->refinedRotatedBBoxes_ = refinedRotatedBBoxes;
-	this->rotatedInitialBBoxes_ = rotatedInitialBBoxes;
+		this->refinedRotatedBBoxes_ = refinedRotatedBBoxes;
+		this->rotatedInitialBBoxes_ = rotatedInitialBBoxes;
+	}
 }
 
 void obstacleClustering::runDBSCAN(const std::vector<Eigen::Vector3d>& localCloud, std::vector<pointCluster>& cloudClusters){

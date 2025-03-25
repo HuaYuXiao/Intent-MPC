@@ -86,4 +86,4 @@ If our work is useful to your research, please consider citing our paper.
 ## IV. Acknowledgement
 This paper is based on results obtained from a project of Programs for Bridging the gap between R\&D and the IDeal society (society 5.0) and Generating Economic and social value (BRIDGE)/Practical Global Research in the AI×Robotics Services, implemented by the Cabinet Office, Government of Japan.
 
-The author would like to express his sincere gratitude to Professor Kenji Shimada for his great support and all CERLAB UAV team members who contribute to the development of this research.
+The authors would like to express their sincere gratitude to Professor Kenji Shimada for his great support and all CERLAB UAV team members who contribute to the development of this research.

@@ -24,7 +24,7 @@ Zhefan Xu*, Hanyu Jin*, Xinming Han, Haoyu Shen, and Kenji Shimada, "Intent Pred
 *The authors contributed equally.
 
 ## News
-- **2025-03-22:** The GitHub code, video demos, and relavant papers for our Intent-MPC Navigation framework are released. The authors will actively maintain and update this repo!
+- **2025-03-25:** The GitHub code, video demos, and relavant papers for our Intent-MPC Navigation framework are released. The authors will actively maintain and update this repo!
 
 
 ## Table of Contents

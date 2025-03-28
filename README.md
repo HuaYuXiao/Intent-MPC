@@ -10,9 +10,9 @@ This repository implements the Intent Prediction-Driven Model Predictive Control
 
 <table>
   <tr>
-    <td><img src="media/intent-MPC-demo1.gif" alt="mocap demo - gif" style="width: 100%;"></td>
-    <td><img src="media/intent-MPC-demo2.gif" alt="sim demo - gif" style="width: 100%;"></td>
-    <td><img src="media/intent-MPC-demo3.gif" alt="straight demo - gif" style="width: 100%;"></td>
+    <td><img src="media/intent-MPC-demo1.gif" style="width: 100%;"></td>
+    <td><img src="media/intent-MPC-demo2.gif" style="width: 100%;"></td>
+    <td><img src="media/intent-MPC-demo3.gif" style="width: 100%;"></td>
   </tr>
 </table>
 

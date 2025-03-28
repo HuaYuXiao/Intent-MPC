@@ -8,14 +8,14 @@
 
 This repository implements the Intent Prediction-Driven Model Predictive Control (Intent-MPC) framework, enabling the robot to navigate safely in dynamic environments.
 
-
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/49afbbf5-cc94-40ca-8652-063cf667d5cb" alt="mocap demo - gif" style="width: 100%;"></td>
-    <td><img src="https://github.com/user-attachments/assets/e4749de4-f7fa-4e6f-965b-4b45cb1a567d" alt="sim demo - gif" style="width: 100%;"></td>
-    <td><img src="https://github.com/user-attachments/assets/aeacfebd-b3db-40fa-904c-d851a0162b2f" alt="straight demo - gif" style="width: 100%;"></td>
+    <td><img src="media/intent-MPC-demo1.gif" alt="mocap demo - gif" style="width: 100%;"></td>
+    <td><img src="media/intent-MPC-demo2.gif" alt="sim demo - gif" style="width: 100%;"></td>
+    <td><img src="media/intent-MPC-demo3.gif" alt="straight demo - gif" style="width: 100%;"></td>
   </tr>
 </table>
+
 
 For additional details, please refer to the related paper available here:
 

@@ -19,7 +19,7 @@ This repository implements the Intent Prediction-Driven Model Predictive Control
 
 For additional details, please refer to the related paper available here:
 
-Zhefan Xu*, Hanyu Jin*, Xinming Han, Haoyu Shen, and Kenji Shimada, "Intent Prediction-Driven Model Predictive Control for UAV Planning and Navigation in Dynamic Environments”, *IEEE Robotics and Automation Letters (RA-L)*, 2025. [IEEE Xplore] [\[preprint\]](https://arxiv.org/pdf/2409.15633) [\[YouTube\]](https://youtu.be/4xsEeMB9WPY) [\[BiliBili\]](https://www.bilibili.com/video/BV1e9XhYQEqA/)
+Zhefan Xu*, Hanyu Jin*, Xinming Han, Haoyu Shen, and Kenji Shimada, "Intent Prediction-Driven Model Predictive Control for UAV Planning and Navigation in Dynamic Environments”, *IEEE Robotics and Automation Letters (RA-L)*, 2025. [\[IEEE Xplore\]](https://ieeexplore.ieee.org/document/10945375) [\[preprint\]](https://arxiv.org/pdf/2409.15633) [\[YouTube\]](https://youtu.be/4xsEeMB9WPY) [\[BiliBili\]](https://www.bilibili.com/video/BV1e9XhYQEqA/)
 
 *The authors contributed equally.
 
@@ -75,12 +75,16 @@ https://github.com/user-attachments/assets/2ed3163f-c4e3-43d3-9ac5-11ac57a344d3
 ## III. Citation and Reference
 If our work is useful to your research, please consider citing our paper.
 ```
-@article{Intent-MPC,
-  title={Intent Prediction-Driven Model Predictive Control for UAV Planning and Navigation in Dynamic Environments},
+@ARTICLE{Intent-MPC,
   author={Xu, Zhefan and Jin, Hanyu and Han, Xinming and Shen, Haoyu and Shimada, Kenji},
-  journal={arXiv preprint arXiv:2409.15633},
-  year={2024}
-}
+  journal={IEEE Robotics and Automation Letters}, 
+  title={Intent Prediction-Driven Model Predictive Control for UAV Planning and Navigation in Dynamic Environments}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-8},
+  keywords={Trajectory;Vehicle dynamics;Navigation;Planning;Dynamics;Collision avoidance;Autonomous aerial vehicles;Predictive control;Detectors;Heuristic algorithms;Aerial Systems: Perception and Autonomy;Integrated Planning and Control;RGB-D Perception},
+  doi={10.1109/LRA.2025.3555937}}
 ```
 
 ## IV. Acknowledgement

@@ -80,10 +80,10 @@ If our work is useful to your research, please consider citing our paper.
   journal={IEEE Robotics and Automation Letters}, 
   title={Intent Prediction-Driven Model Predictive Control for UAV Planning and Navigation in Dynamic Environments}, 
   year={2025},
-  volume={},
-  number={},
-  pages={1-8},
-  keywords={Trajectory;Vehicle dynamics;Navigation;Planning;Dynamics;Collision avoidance;Autonomous aerial vehicles;Predictive control;Detectors;Heuristic algorithms;Aerial Systems: Perception and Autonomy;Integrated Planning and Control;RGB-D Perception},
+  volume={10},
+  number={5},
+  pages={4946-4953},
+  keywords={Trajectory;Vehicle dynamics;Navigation;Planning;Dynamics;Collision avoidance;Autonomous aerial vehicles;Predictive control;Detectors;Heuristic algorithms;Aerial systems: Perception and autonomy;integrated planning and control;RGB-D perception},
   doi={10.1109/LRA.2025.3555937}}
 ```
 
